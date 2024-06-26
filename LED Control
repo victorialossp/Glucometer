@@ -35,11 +35,16 @@ void blink_task(void *pvParameter)
         // Liga o LED1 e desliga o LED2
         gpio_set_level(LED1, 1);
         gpio_set_level(LED2, 0);
-        vTaskDelay(200 / portTICK_PERIOD_MS); // Espera 500 ms
+        vTaskDelay(100 / portTICK_PERIOD_MS); 
 
         // Desliga o LED1 e liga o LED2
         gpio_set_level(LED1, 0);
         gpio_set_level(LED2, 1);
+        vTaskDelay(100 / portTICK_PERIOD_MS); 
+        
+        // Aguarda com ambos os LEDs apagados
+        gpio_set_level(LED1, 0);
+        gpio_set_level(LED2, 0);
         vTaskDelay(200 / portTICK_PERIOD_MS); // Espera 500 ms
     }
 }
